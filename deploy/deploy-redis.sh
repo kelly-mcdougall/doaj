@@ -12,6 +12,7 @@ sudo sed -i "s/bind 127.0.0.1/$REDIS_BIND_HOST/g" /etc/redis/redis.conf
 
 echo "Configuring redis to run under supervisor"
 sudo sed -i "s/daemonize.*$/daemonize no/g" /etc/redis/redis.conf
+sudo sed -i "s/logfile /var/log/redis/redis-server.log/logfile/g"
 
 # Restart redis
 /home/cloo/repl/$ENV/doaj/src/doaj/deploy/restart-redis.sh $ENV
