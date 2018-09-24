@@ -8,7 +8,7 @@ ENV=$1
 # Restart the python app under supervisor
 sudo supervisorctl reread doaj-$ENV
 sudo supervisorctl update doaj-$ENV
-kill -HUP $(sudo supervisorctl pid doaj-$ENV)
+kill -HUP -x $(sudo supervisorctl pid doaj-$ENV)
 
 # Restart nginx, which the app is running behind.
 sudo nginx -t && sudo nginx -s reload
