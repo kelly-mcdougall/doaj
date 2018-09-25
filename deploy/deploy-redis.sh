@@ -18,7 +18,7 @@ sudo ln -sf $DIR/redis/redis.conf /etc/redis/redis.conf
 
 echo "Configuring redis to use host $REDIS_BIND_HOST and port $HUEY_REDIS_PORT"
 sudo sed -i "s/^port.*$/port $HUEY_REDIS_PORT/g" /etc/redis/redis.conf
-sudo sed -i "s/^bind.*$/$REDIS_BIND_HOST/g" /etc/redis/redis.conf
+sudo sed -i "s/^[# ]*bind.*$/$REDIS_BIND_HOST/g" /etc/redis/redis.conf
 
 # Restart redis
 /home/cloo/repl/$ENV/doaj/src/doaj/deploy/restart-redis.sh $ENV

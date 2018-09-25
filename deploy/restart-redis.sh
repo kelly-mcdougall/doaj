@@ -5,4 +5,4 @@ THIS_SCRIPT=`basename "$0"`
 
 ENV=$1
 
-sudo supervisorctl restart redis
+sudo supervisorctl restart redis || sudo supervisorctl start redis
